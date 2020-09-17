@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Image_Gallery.ViewModels.MediaViewModels.MediaViewModel>
+
+@{
+    ViewData["Title"] = "Medias";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <a href="~/@(item.ImagePath)" target="_parent">
+                    <img src="~/@(item.ImagePath)" class="img-thumbnail" alt="@(item.CategoryTitle)" />
+                </a>
+            </div>
+        }
+    </div>
+</div>

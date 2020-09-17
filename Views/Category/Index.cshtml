@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Image_Gallery.ViewModels.CategoryViewModels.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="card-columns">
+    @foreach (var item in Model)
+    {
+
+        <div class="card">
+            <a asp-action="Medias" asp-route-id="@item.CategoryMedia.CategoryId">
+                <img class="card-img-top" src="@(item.CategoryMedia.ImagePath)" alt="@(item.CategoryMedia.Category.Title)" />
+                <div class="card-body">
+                    <h5 class="card-title">@(item.CategoryMedia.Category.Title)</h5>
+                </div>
+            </a>
+        </div>
+
+    }
+</div>
